@@ -1,0 +1,44 @@
+{
+  "notifications": [
+    {
+      "id": 1,
+      "title": "Procurement Request Approved",
+      "message": "Purchase request PR-1005 has been approved.",
+      "priority": "High",
+      "status": "Unread",
+      "module": "Procurement",
+      "date": "2026-06-29",
+      "time": "09:20 AM"
+    },
+    {
+      "id": 2,
+      "title": "Vendor Compliance Expiring",
+      "message": "Vendor ABC Technologies compliance expires in 3 days.",
+      "priority": "Medium",
+      "status": "Unread",
+      "module": "Vendor",
+      "date": "2026-06-29",
+      "time": "10:05 AM"
+    },
+    {
+      "id": 3,
+      "title": "Risk Escalation",
+      "message": "Critical cyber security risk requires immediate attention.",
+      "priority": "Critical",
+      "status": "Read",
+      "module": "Risk",
+      "date": "2026-06-28",
+      "time": "05:45 PM"
+    },
+    {
+      "id": 4,
+      "title": "Audit Completed",
+      "message": "Internal audit IA-2026-001 completed successfully.",
+      "priority": "Low",
+      "status": "Read",
+      "module": "Audit",
+      "date": "2026-06-28",
+      "time": "11:30 AM"
+    }
+  ]
+}

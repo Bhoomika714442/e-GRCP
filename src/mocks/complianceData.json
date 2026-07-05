@@ -1,0 +1,182 @@
+{
+  "compliance": [
+    {
+      "id": "CMP001",
+      "vendorName": "ABC Technologies",
+      "regulation": "ISO 27001",
+      "category": "Information Security",
+      "status": "Compliant",
+      "complianceScore": 98,
+      "auditDate": "2025-01-15",
+      "expiryDate": "2026-01-15",
+      "officer": "John Smith",
+      "violations": [],
+      "missingDocuments": [],
+      "certifications": [
+        {
+          "name": "ISO 27001",
+          "status": "Valid",
+          "expiry": "2026-01-15"
+        }
+      ]
+    },
+    {
+      "id": "CMP002",
+      "vendorName": "Global Suppliers Ltd",
+      "regulation": "ISO 9001",
+      "category": "Quality",
+      "status": "Violation",
+      "complianceScore": 71,
+      "auditDate": "2025-02-10",
+      "expiryDate": "2025-08-12",
+      "officer": "Sarah Wilson",
+      "violations": [
+        "Quality audit failed",
+        "Supplier documentation incomplete"
+      ],
+      "missingDocuments": [
+        "Quality Manual",
+        "Audit Report"
+      ],
+      "certifications": [
+        {
+          "name": "ISO 9001",
+          "status": "Valid",
+          "expiry": "2025-08-12"
+        }
+      ]
+    },
+    {
+      "id": "CMP003",
+      "vendorName": "Future Systems",
+      "regulation": "GDPR",
+      "category": "Privacy",
+      "status": "Pending",
+      "complianceScore": 83,
+      "auditDate": "2025-03-08",
+      "expiryDate": "2025-12-20",
+      "officer": "Emily Johnson",
+      "violations": [],
+      "missingDocuments": [
+        "Privacy Policy"
+      ],
+      "certifications": []
+    },
+    {
+      "id": "CMP004",
+      "vendorName": "SecureNet Pvt Ltd",
+      "regulation": "SOC 2",
+      "category": "Cyber Security",
+      "status": "Violation",
+      "complianceScore": 65,
+      "auditDate": "2025-02-28",
+      "expiryDate": "2025-06-30",
+      "officer": "David Brown",
+      "violations": [
+        "Critical security controls missing",
+        "Password policy not implemented"
+      ],
+      "missingDocuments": [
+        "Penetration Test Report"
+      ],
+      "certifications": [
+        {
+          "name": "SOC 2",
+          "status": "Expiring Soon",
+          "expiry": "2025-06-30"
+        }
+      ]
+    },
+    {
+      "id": "CMP005",
+      "vendorName": "Cloud Solutions",
+      "regulation": "PCI DSS",
+      "category": "Financial Security",
+      "status": "Expired",
+      "complianceScore": 59,
+      "auditDate": "2024-12-20",
+      "expiryDate": "2025-01-31",
+      "officer": "Lisa Green",
+      "violations": [
+        "Encryption standards not met"
+      ],
+      "missingDocuments": [
+        "Security Assessment",
+        "Compliance Certificate"
+      ],
+      "certifications": [
+        {
+          "name": "PCI DSS",
+          "status": "Expired",
+          "expiry": "2025-01-31"
+        }
+      ]
+    },
+    {
+      "id": "CMP006",
+      "vendorName": "Industrial Parts",
+      "regulation": "ISO 14001",
+      "category": "Environment",
+      "status": "Compliant",
+      "complianceScore": 96,
+      "auditDate": "2025-03-05",
+      "expiryDate": "2026-03-05",
+      "officer": "Michael Harris",
+      "violations": [],
+      "missingDocuments": [],
+      "certifications": [
+        {
+          "name": "ISO 14001",
+          "status": "Valid",
+          "expiry": "2026-03-05"
+        }
+      ]
+    },
+    {
+      "id": "CMP007",
+      "vendorName": "QuickPay Services",
+      "regulation": "SOX",
+      "category": "Financial",
+      "status": "Pending",
+      "complianceScore": 82,
+      "auditDate": "2025-02-18",
+      "expiryDate": "2025-10-10",
+      "officer": "Nancy Taylor",
+      "violations": [],
+      "missingDocuments": [
+        "Financial Audit Report"
+      ],
+      "certifications": [
+        {
+          "name": "SOX",
+          "status": "Valid",
+          "expiry": "2025-10-10"
+        }
+      ]
+    },
+    {
+      "id": "CMP008",
+      "vendorName": "CloudHost Ltd",
+      "regulation": "ISO 27017",
+      "category": "Cloud Security",
+      "status": "Expired",
+      "complianceScore": 61,
+      "auditDate": "2024-11-18",
+      "expiryDate": "2025-02-01",
+      "officer": "Robert Wilson",
+      "violations": [
+        "Cloud security controls outdated"
+      ],
+      "missingDocuments": [
+        "Cloud Risk Assessment"
+      ],
+      "certifications": [
+        {
+          "name": "ISO 27017",
+          "status": "Expired",
+          "expiry": "2025-02-01"
+        }
+      ]
+    }
+  ]
+}

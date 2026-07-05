@@ -1,0 +1,36 @@
+{
+  "reports": [
+    {
+      "id": 1,
+      "name": "Monthly Procurement Report",
+      "category": "Procurement",
+      "generatedBy": "System Administrator",
+      "generatedDate": "2026-06-29",
+      "format": "PDF"
+    },
+    {
+      "id": 2,
+      "name": "Vendor Performance Report",
+      "category": "Vendor",
+      "generatedBy": "Rahul Sharma",
+      "generatedDate": "2026-06-28",
+      "format": "Excel"
+    },
+    {
+      "id": 3,
+      "name": "Risk Assessment Report",
+      "category": "Risk",
+      "generatedBy": "Karan Singh",
+      "generatedDate": "2026-06-27",
+      "format": "CSV"
+    },
+    {
+      "id": 4,
+      "name": "Compliance Summary Report",
+      "category": "Compliance",
+      "generatedBy": "Priya Nair",
+      "generatedDate": "2026-06-29",
+      "format": "PDF"
+    }
+  ]
+}

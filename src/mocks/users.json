@@ -1,0 +1,60 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "employeeId": "EMP001",
+      "name": "System Administrator",
+      "email": "admin@egrcp.com",
+      "password": "Admin@123",
+      "role": "Administrator",
+      "department": "IT",
+      "phone": "+91 9876543210",
+      "status": "Active",
+      "theme": "Light",
+      "language": "English",
+      "lastLogin": "2026-06-29 09:30 AM"
+    },
+    {
+      "id": 2,
+      "employeeId": "EMP002",
+      "name": "Rahul Sharma",
+      "email": "rahul@egrcp.com",
+      "password": "Rahul@123",
+      "role": "Procurement Manager",
+      "department": "Procurement",
+      "phone": "+91 9876543211",
+      "status": "Active",
+      "theme": "Light",
+      "language": "English",
+      "lastLogin": "2026-06-29 08:15 AM"
+    },
+    {
+      "id": 3,
+      "employeeId": "EMP003",
+      "name": "Priya Nair",
+      "email": "priya@egrcp.com",
+      "password": "Priya@123",
+      "role": "Compliance Officer",
+      "department": "Compliance",
+      "phone": "+91 9876543212",
+      "status": "Active",
+      "theme": "Dark",
+      "language": "English",
+      "lastLogin": "2026-06-29 10:05 AM"
+    },
+    {
+      "id": 4,
+      "employeeId": "EMP004",
+      "name": "Karan Singh",
+      "email": "karan@egrcp.com",
+      "password": "Karan@123",
+      "role": "Risk Manager",
+      "department": "Risk",
+      "phone": "+91 9876543213",
+      "status": "Inactive",
+      "theme": "Light",
+      "language": "English",
+      "lastLogin": "2026-06-26 04:45 PM"
+    }
+  ]
+}

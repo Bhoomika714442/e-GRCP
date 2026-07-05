@@ -1,0 +1,79 @@
+{
+  "audits": [
+    {
+      "id": 1,
+      "auditName": "Vendor Compliance Audit",
+      "module": "Vendor Management",
+      "auditor": "John Smith",
+      "status": "Completed",
+      "severity": "Low",
+      "auditDate": "2025-01-10",
+      "reportDate": "2025-01-12",
+      "findings": 2,
+      "activities": [
+        "Vendor profile reviewed",
+        "Documents verified",
+        "Compliance confirmed"
+      ],
+      "logs": [
+        "Audit created",
+        "Report generated",
+        "Audit closed"
+      ]
+    },
+    {
+      "id": 2,
+      "auditName": "Procurement Process Audit",
+      "module": "Procurement",
+      "auditor": "Emma Johnson",
+      "status": "In Progress",
+      "severity": "Medium",
+      "auditDate": "2025-02-08",
+      "reportDate": "",
+      "findings": 5,
+      "activities": [
+        "Purchase requests reviewed",
+        "Approval workflow checked"
+      ],
+      "logs": [
+        "Audit initiated",
+        "Evidence uploaded"
+      ]
+    },
+    {
+      "id": 3,
+      "auditName": "Risk Assessment Audit",
+      "module": "Risk Center",
+      "auditor": "Michael Brown",
+      "status": "Completed",
+      "severity": "High",
+      "auditDate": "2025-03-15",
+      "reportDate": "2025-03-18",
+      "findings": 7,
+      "activities": [
+        "Risk matrix validated",
+        "Risk owners interviewed",
+        "Controls verified"
+      ],
+      "logs": [
+        "Audit completed",
+        "Final report published"
+      ]
+    },
+    {
+      "id": 4,
+      "auditName": "Information Security Audit",
+      "module": "Security",
+      "auditor": "Sophia Davis",
+      "status": "Scheduled",
+      "severity": "Critical",
+      "auditDate": "2025-05-10",
+      "reportDate": "",
+      "findings": 0,
+      "activities": [],
+      "logs": [
+        "Audit scheduled"
+      ]
+    }
+  ]
+}

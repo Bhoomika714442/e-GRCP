@@ -1,0 +1,49 @@
+{
+  "approvals": [
+    {
+      "id": 1,
+      "requestName": "Vendor Registration",
+      "vendor": "ABC Technologies",
+      "requestedBy": "John Smith",
+      "date": "2026-07-01",
+      "priority": "High",
+      "status": "Pending"
+    },
+    {
+      "id": 2,
+      "requestName": "Risk Assessment",
+      "vendor": "Global Solutions",
+      "requestedBy": "David Lee",
+      "date": "2026-07-02",
+      "priority": "Medium",
+      "status": "Approved"
+    },
+    {
+      "id": 3,
+      "requestName": "Security Review",
+      "vendor": "Cloud Systems",
+      "requestedBy": "Emma Brown",
+      "date": "2026-07-03",
+      "priority": "Critical",
+      "status": "Rejected"
+    },
+    {
+      "id": 4,
+      "requestName": "Contract Approval",
+      "vendor": "NextGen Ltd",
+      "requestedBy": "Robert",
+      "date": "2026-07-04",
+      "priority": "High",
+      "status": "Escalated"
+    },
+    {
+      "id": 5,
+      "requestName": "Compliance Review",
+      "vendor": "Soft Vision",
+      "requestedBy": "Sophia",
+      "date": "2026-07-05",
+      "priority": "Low",
+      "status": "Pending"
+    }
+  ]
+}

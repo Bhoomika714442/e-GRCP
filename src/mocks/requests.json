@@ -1,0 +1,60 @@
+{
+  "requests": [
+    {
+      "id": 1,
+      "vendor": "ABC Technologies",
+      "status": "Approved",
+      "amount": 12000,
+      "department": "IT"
+    },
+    {
+      "id": 2,
+      "vendor": "Global Solutions",
+      "status": "Pending",
+      "amount": 8500,
+      "department": "Finance"
+    },
+    {
+      "id": 3,
+      "vendor": "NextGen Pvt Ltd",
+      "status": "Rejected",
+      "amount": 5400,
+      "department": "HR"
+    },
+    {
+      "id": 4,
+      "vendor": "Infosys",
+      "status": "Approved",
+      "amount": 17000,
+      "department": "IT"
+    },
+    {
+      "id": 5,
+      "vendor": "Wipro",
+      "status": "Pending",
+      "amount": 22000,
+      "department": "Operations"
+    },
+    {
+      "id": 6,
+      "vendor": "TCS",
+      "status": "Approved",
+      "amount": 9200,
+      "department": "Finance"
+    },
+    {
+      "id": 7,
+      "vendor": "IBM",
+      "status": "Rejected",
+      "amount": 7300,
+      "department": "IT"
+    },
+    {
+      "id": 8,
+      "vendor": "Oracle",
+      "status": "Pending",
+      "amount": 18500,
+      "department": "Operations"
+    }
+  ]
+}
