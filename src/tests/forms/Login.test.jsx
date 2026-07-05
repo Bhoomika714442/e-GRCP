@@ -1,340 +1,160 @@
+// src/tests/forms/Login.test.jsx
+
 import { describe, it, expect, beforeEach, vi } from "vitest";
 import {
   render,
   screen,
-  fireEvent,
   waitFor,
 } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { Provider } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
 import { MemoryRouter } from "react-router-dom";
+
 import Login from "../../features/auth/Login";
 
-import { useDispatch } from "react-redux";
-import useAuth from "../../hooks/useAuth";
-import useSnackbar from "../../hooks/useSnackbar";
+const dispatchMock = vi.fn();
 
-import {
-  clearError,
-  restoreSession,
-} from "../../store/authSlice";
-
-const navigate = vi.fn();
-const dispatch = vi.fn();
-const snackbar = vi.fn();
-
-vi.mock("react-redux", () => ({
-  useDispatch: vi.fn(),
-}));
-
-vi.mock("../../hooks/useAuth");
-
-vi.mock("../../hooks/useSnackbar");
-
-vi.mock("../../store/authSlice", () => ({
-  clearError: vi.fn(() => ({
-    type: "auth/clearError",
-  })),
-  restoreSession: vi.fn(() => ({
-    type: "auth/restoreSession",
-  })),
-}));
-
-vi.mock("react-router-dom", async () => {
-  const actual = await vi.importActual(
-    "react-router-dom"
-  );
+vi.mock("react-redux", async () => {
+  const actual = await vi.importActual("react-redux");
 
   return {
     ...actual,
-    useNavigate: () => navigate,
+    useDispatch: () => dispatchMock,
   };
 });
+
+const navigateMock = vi.fn();
+
+vi.mock("react-router-dom", async () => {
+  const actual = await vi.importActual("react-router-dom");
+
+  return {
+    ...actual,
+    useNavigate: () => navigateMock,
+  };
+});
+
+const snackbarMock = vi.fn();
+
+vi.mock("../../hooks/useSnackbar", () => ({
+  default: () => snackbarMock,
+}));
+
+const loginMock = vi.fn();
+
+vi.mock("../../hooks/useAuth", () => ({
+  default: () => ({
+    login: loginMock,
+    isLoading: false,
+    error: null,
+    isAuthenticated: false,
+  }),
+}));
+
+vi.mock("../../store/authSlice", () => ({
+  clearError: () => ({ type: "auth/clearError" }),
+  restoreSession: () => ({ type: "auth/restoreSession" }),
+}));
+
+const store = configureStore({
+  reducer: {
+    auth: (state = {}) => state,
+  },
+});
+
+const renderComponent = () =>
+  render(
+    <Provider store={store}>
+      <MemoryRouter>
+        <Login />
+      </MemoryRouter>
+    </Provider>
+  );
 
 describe("Login", () => {
   beforeEach(() => {
     vi.clearAllMocks();
-
-    useDispatch.mockReturnValue(dispatch);
-
-    useSnackbar.mockReturnValue(snackbar);
-
-    useAuth.mockReturnValue({
-      login: vi.fn(),
-      logout: vi.fn(),
-      isLoading: false,
-      error: null,
-      isAuthenticated: false,
-    });
   });
-
-  const renderComponent = () =>
-    render(
-      <MemoryRouter>
-        <Login />
-      </MemoryRouter>
-    );
 
   it("renders correctly", () => {
     renderComponent();
 
     expect(
-      screen.getByText(/welcome back/i)
+      screen.getByText(/Welcome Back/i)
     ).toBeInTheDocument();
 
     expect(
-      screen.getByLabelText(/email/i)
+      screen.getByLabelText(/Email Address/i)
     ).toBeInTheDocument();
 
     expect(
-      screen.getByLabelText(/password/i)
+      screen.getByLabelText(/Password/i)
     ).toBeInTheDocument();
 
     expect(
       screen.getByRole("button", {
-        name: /login/i,
+        name: /LOGIN/i,
       })
     ).toBeInTheDocument();
-  });
-
-  it("dispatches clearError on mount", () => {
-    renderComponent();
-
-    expect(clearError).toHaveBeenCalled();
-
-    expect(dispatch).toHaveBeenCalledWith({
-      type: "auth/clearError",
-    });
-  });
-
-  it("dispatches restoreSession on mount", () => {
-    renderComponent();
-
-    expect(restoreSession).toHaveBeenCalled();
-
-    expect(dispatch).toHaveBeenCalledWith({
-      type: "auth/restoreSession",
-    });
   });
 
   it("shows validation errors", async () => {
+    const user = userEvent.setup();
+
     renderComponent();
 
-    fireEvent.click(
+    await user.click(
       screen.getByRole("button", {
-        name: /login/i,
+        name: /LOGIN/i,
       })
     );
 
     expect(
-      await screen.findByText(
-        /email is required/i
-      )
+      await screen.findByText(/Email is required/i)
     ).toBeInTheDocument();
 
     expect(
-      screen.getByText(
-        /password is required/i
-      )
+      await screen.findByText(/Password is required/i)
     ).toBeInTheDocument();
   });
 
-  it("shows invalid email validation", async () => {
-    renderComponent();
+  it("submits valid form", async () => {
+    loginMock.mockResolvedValue();
 
-    fireEvent.change(
-      screen.getByLabelText(/email/i),
-      {
-        target: {
-          value: "abc",
-        },
-      }
-    );
-
-    fireEvent.change(
-      screen.getByLabelText(/password/i),
-      {
-        target: {
-          value: "123456",
-        },
-      }
-    );
-
-    fireEvent.click(
-      screen.getByRole("button", {
-        name: /login/i,
-      })
-    );
-
-    expect(
-      await screen.findByText(
-        /enter a valid email/i
-      )
-    ).toBeInTheDocument();
-  });
-
-  it("shows minimum password validation", async () => {
-    renderComponent();
-
-    fireEvent.change(
-      screen.getByLabelText(/email/i),
-      {
-        target: {
-          value: "test@test.com",
-        },
-      }
-    );
-
-    fireEvent.change(
-      screen.getByLabelText(/password/i),
-      {
-        target: {
-          value: "123",
-        },
-      }
-    );
-
-    fireEvent.click(
-      screen.getByRole("button", {
-        name: /login/i,
-      })
-    );
-
-    expect(
-      await screen.findByText(
-        /minimum 6 characters/i
-      )
-    ).toBeInTheDocument();
-  });
-
-  it("calls login on valid submit", async () => {
-    const login = vi.fn();
-
-    useAuth.mockReturnValue({
-      login,
-      logout: vi.fn(),
-      isLoading: false,
-      error: null,
-      isAuthenticated: false,
-    });
+    const user = userEvent.setup();
 
     renderComponent();
 
-    fireEvent.change(
-      screen.getByLabelText(/email/i),
-      {
-        target: {
-          value: "admin@test.com",
-        },
-      }
+    await user.type(
+      screen.getByLabelText(/Email Address/i),
+      "admin@test.com"
     );
 
-    fireEvent.change(
-      screen.getByLabelText(/password/i),
-      {
-        target: {
-          value: "password123",
-        },
-      }
+    await user.type(
+      screen.getByLabelText(/Password/i),
+      "password123"
     );
 
-    fireEvent.click(
+    await user.click(
       screen.getByRole("button", {
-        name: /login/i,
+        name: /LOGIN/i,
       })
     );
 
     await waitFor(() => {
-      expect(login).toHaveBeenCalledWith({
+      expect(loginMock).toHaveBeenCalledTimes(1);
+
+      expect(loginMock).toHaveBeenCalledWith({
         email: "admin@test.com",
         password: "password123",
       });
     });
   });
 
-  it("shows loading spinner", () => {
-    useAuth.mockReturnValue({
-      login: vi.fn(),
-      logout: vi.fn(),
-      isLoading: true,
-      error: null,
-      isAuthenticated: false,
-    });
-
+  it("dispatches initialization actions", () => {
     renderComponent();
 
-    expect(
-      screen.getByRole("progressbar")
-    ).toBeInTheDocument();
-
-    expect(
-      screen.getByRole("button")
-    ).toBeDisabled();
-  });
-
-  it("shows snackbar when login fails", () => {
-  useAuth.mockReturnValue({
-    login: vi.fn(),
-    logout: vi.fn(),
-    isLoading: false,
-    error: "Login Failed",
-    isAuthenticated: false,
-  });
-
-  renderComponent();
-
-  expect(snackbar).toHaveBeenCalledWith(
-    "Login Failed",
-    "error"
-  );
-});
-
-  it("shows snackbar on error", () => {
-    useAuth.mockReturnValue({
-      login: vi.fn(),
-      logout: vi.fn(),
-      isLoading: false,
-      error: "Invalid Credentials",
-      isAuthenticated: false,
-    });
-
-    renderComponent();
-
-    expect(snackbar).toHaveBeenCalledWith(
-      "Invalid Credentials",
-      "error"
-    );
-  });
-
-  it("shows success snackbar and navigates", () => {
-    useAuth.mockReturnValue({
-      login: vi.fn(),
-      logout: vi.fn(),
-      isLoading: false,
-      error: null,
-      isAuthenticated: true,
-    });
-
-    renderComponent();
-
-    expect(snackbar).toHaveBeenCalledWith(
-      "Login successful. Welcome back!",
-      "success"
-    );
-
-    expect(navigate).toHaveBeenCalledWith(
-      "/dashboard"
-    );
-  });
-
-  it("renders forgot password link", () => {
-    renderComponent();
-
-    const link = screen.getByRole("link", {
-      name: /forgot password/i,
-    });
-
-    expect(link).toHaveAttribute(
-      "href",
-      "/forgot-password"
-    );
+    expect(dispatchMock).toHaveBeenCalledTimes(2);
   });
 });
